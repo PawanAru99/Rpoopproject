@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+<body>
+
+
+
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Page</title>
+</head>
+<body>
+  <h1>Admin Page</h1>
+
+  <label for="panchayat_samiti">Filter by Panchayat Samiti:</label>
+  <select id="panchayat_samiti">
+    <option value="Karanja">Karanja</option>
+    <!-- Add more options for Panchayat Samiti here -->
+  </select>
+  <br>
+
+  <label for="shalarth_id">Search by Shalarth ID:</label>
+  <input type="text" id="shalarth_id" placeholder="Enter Shalarth ID">
+  <button onclick="searchUser()">Search</button>
+  <br><br>
+
+  <table id="data_table" border="1">
+    <thead>
+      <tr>
+        <th>Shalarth ID</th>
+        <th>Panchayat Samiti</th>
+        <th>School Udise Code</th>
+        <th>School Name</th>
+        <th>SSDC</th>
+        <th>Employee Name</th>
+        <th>Gender</th>
+        <th>Position</th>
+        <th>GPF No</th>
+        <th>DCPS No</th>
+        <th>PRAN No</th>
+        <th>PAN No</th>
+        <th>Aadhar No</th>
+        <th>Mobile No</th>
+        <th>Email ID</th>
+        <th>Branch Name</th>
+        <th>Pay Matrix</th>
+        <th>Mul Vetan</th>
+        <th>Mahagai Batta</th>
+        <th>Gharbhade</th>
+        <th>Vahan Batta</th>
+        <th>Washing Allowance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data rows will be added dynamically using JavaScript -->
+    </tbody>
+  </table>
+
+  <script>
+    function searchUser() {
+      var shalarthId = document.getElementById("shalarth_id").value;
+      var table = document.getElementById("data_table");
+      var rows = table.getElementsByTagName("tr");
+      for (var i = 1; i < rows.length; i++) {
+        var shalarthIdCell = rows[i].cells[0];
+        if (shalarthIdCell.innerText === shalarthId) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    }
+
+    document.getElementById("panchayat_samiti").addEventListener("change", filterByPanchayatSamiti);
+
+    function filterByPanchayatSamiti() {
+      var panchayatSamiti = document.getElementById("panchayat_samiti").value;
+      var table = document.getElementById("data_table");
+      var rows = table.getElementsByTagName("tr");
+      for (var i = 1; i < rows.length; i++) {
+        var panchayatSamitiCell = rows[i].cells[1];
+        if (panchayatSamitiCell.innerText === panchayatSamiti) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+    
+</body>
+</html>
